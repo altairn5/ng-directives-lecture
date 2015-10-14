@@ -13,9 +13,32 @@
 <body >
   <div ng-controller="Controller">
     <!--  Traverses $scope.students in app.js controller -->
-    <div ng-repeat="instructor in instructors">
-      {{instructor.name}} {{instructor.github}} {{instructor.cohort}} {{instructor.position}}
+    Search: <input ng-model="query">
+    Sort by:
+   <select ng-model="orderProp">
+
+      <option value="cohort">Cohort</option>  
+      <option value="name">Name</option>
+      <option value="github">Username</option>
+    </select>
+
+  <div ng-repeat="instructor in instructors |filter:query |orderBy:orderProp" class="panel panel-default">
+    <div class="panel-body">
+      <h2>({{instructor.position}} Extraordinaire)</h2></br>
+      
+      <img ng-src="{{instructor.image}}" width = "100px"></br>
+      <h3>Name: {{instructor.name}} </br>
+      Github Username: <a ng-href="https://github.com/{{instructor.github}}"> {{instructor.github}}</a></h3></br>
+      Currently instructing cohort # {{instructor.cohort}} </br>
+      total amount of times an instructor has said 
+        <button ng-click="count = count+1" ng-init="count=0">"Automagic"
+        </button> In your tenure at GA : {{count}}
+        <div ng-if="count>=10">
+          {{wizard}}
+        </div>
+      </div>  
     </div>
   </div>
+
 </body>
 </html>

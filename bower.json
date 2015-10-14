@@ -6,9 +6,8 @@
   ],
   "description": "an example of angular custom directives",
   "main": "app.js",
-  "moduleType": [],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/altairn5/ng-directives-lecture",
   "ignore": [
     "**/.*",
     "node_modules",

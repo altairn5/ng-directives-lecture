@@ -1,7 +1,8 @@
 (function(angular) {
   'use strict';
 angular.module('githubApp', [])
-  .controller('Controller', ['$scope', function($scope) {
+  .controller('Controller', ['$scope','$window', function($scope, $win) {
+    $scope.wizard = "You are a wizard!";
     $scope.instructors = [
    {
      name: 'Nathan Allen',
@@ -103,5 +104,7 @@ angular.module('githubApp', [])
     }
   ];
     $scope.orderProp = 'cohort';
+    $scope.orderProp = 'name';
+    $scope.orderProp = 'github'
   }])
 })(window.angular);
